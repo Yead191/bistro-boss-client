@@ -15,14 +15,15 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import auth from '../Firebase/firebase.init';
 import { useForm } from "react-hook-form";
 import { IoWarningOutline } from 'react-icons/io5';
+import useAxiosPublic from '../hooks/useAxiosPublic';
+import SocialLogin from '../components/SocialLogin';
 
 
 
 const Register = () => {
 
     const { handleSubmit, register, reset, formState: { errors } } = useForm();
-
-
+    const axiosSecure = useAxiosPublic()
 
     const { creteUser, updateUserProfile } = useContext(AuthContext)
 
@@ -43,9 +44,22 @@ const Register = () => {
                 console.log(user);
                 updateUserProfile(values.name, values.photo)
                     .then(() => {
-                        toast.success(`Successfully Created Account as: ${res.user.displayName}`)
-                        reset()
-                        navigate(from)
+                        const userInfo = {
+                            name: values.name,
+                            email: values.email,
+                            cratedAt: user?.metadata?.creationTime
+                        }
+                        axiosSecure.post('/users', userInfo)
+                            .then(res => {
+                                // console.log(res);
+                                if (res.data.insertedId) {
+                                    toast.success(`Successfully Created Account as: ${user.displayName}`)
+                                    reset()
+                                    navigate(from)
+                                }
+
+                            })
+
                     })
                     .catch(error => toast.error(error))
             })
@@ -79,7 +93,7 @@ const Register = () => {
                 {/* Right Section */}
                 <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
                     <h2 className="text-3xl font-bold mb-4 text-gray-800">Create Account</h2>
-                    {/* <SocialLogin></SocialLogin> */}
+                    <SocialLogin></SocialLogin>
 
                     <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
                         <input
