@@ -5,12 +5,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 const SocialLogin = () => {
     const navigate = useNavigate()
     const { signInWithGoogle } = useAuth()
     const location = useLocation()
     const from = location.state || '/'
+    const axiosPublic = useAxiosPublic()
     // const handleLoginWithGoogle = () => {
     //     signInWithGoogle()
     //         .then(result => {
@@ -39,8 +41,23 @@ const SocialLogin = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(res => {
-                toast.success(`Signed in as: ${res.user.displayName}`)
+                // console.log(res);
+                const userInfo = {
+                    name: res.user?.displayName,
+                    email: res.user?.email,
+                    photo: res.user?.photoURL,
+                    createdAt: res.user?.metadata?.creationTime
+
+                }
+                toast.success(`Signed in as: ${userInfo.name}`)
                 navigate(from)
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        
+                        // console.log(res);
+                    })
+
             })
             .catch(error => {
                 toast.error(error);

@@ -42,20 +42,23 @@ const Register = () => {
             .then(res => {
                 const user = res.user
                 console.log(user);
+                const userInfo = {
+                    name: values.name,
+                    email: values.email,
+                    photo: values.photo,
+                    createdAt: user?.metadata?.creationTime
+                }
+                // console.log(userInfo);
                 updateUserProfile(values.name, values.photo)
                     .then(() => {
-                        const userInfo = {
-                            name: values.name,
-                            email: values.email,
-                            cratedAt: user?.metadata?.creationTime
-                        }
+                        toast.success(`Successfully Created Account as: ${values.name}`)
+                        reset()
+                        navigate(from)
                         axiosSecure.post('/users', userInfo)
                             .then(res => {
                                 // console.log(res);
                                 if (res.data.insertedId) {
-                                    toast.success(`Successfully Created Account as: ${user.displayName}`)
-                                    reset()
-                                    navigate(from)
+
                                 }
 
                             })

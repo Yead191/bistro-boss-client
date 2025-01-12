@@ -59,7 +59,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl xl:text-3xl" style={{ fontVariant: 'small-caps' }}>Bistro Boss</a>
+                <Link to={'/'} className="btn btn-ghost text-2xl xl:text-3xl" style={{ fontVariant: 'small-caps' }}>Bistro Boss</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-3 mr-5">

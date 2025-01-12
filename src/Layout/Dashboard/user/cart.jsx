@@ -37,7 +37,7 @@ const Cart = () => {
         });
     }
     return (
-        <div className='flex flex-col justify-center items-center p-4 bg-base-200 min-h-screen'>
+        <div className='flex flex-col  items-center p-4 bg-base-200 min-h-screen'>
             <SectionHeader heading={'Wanna Add More'} subHeading={'My Cart'}></SectionHeader>
 
 

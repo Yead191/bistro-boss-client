@@ -13,6 +13,7 @@ import Secret from "../Pages/Secret";
 import Dashboard from "../Layout/Dashboard/user/Dashboard";
 import Cart from "../Layout/Dashboard/user/cart";
 import Payment from "../Layout/Dashboard/user/Payment";
+import AllUsers from "../Layout/Dashboard/Admin/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: 'payment',
         element: <Payment></Payment>
+      },
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>
       },
     ]
   }

@@ -12,6 +12,11 @@ import {
 } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
+import { FaUser, FaUsers } from "react-icons/fa6";
+import { ImSpoonKnife } from "react-icons/im";
+import { IoMdMenu } from "react-icons/io";
+import { BsFillJournalBookmarkFill } from "react-icons/bs";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Dashboard = () => {
     const [cart] = useCart()
@@ -22,6 +27,7 @@ const Dashboard = () => {
             drawerCheckbox.checked = false; // Uncheck the drawer checkbox
         }
     };
+    const [isAdmin] = useAdmin()
     return (
         <div className="drawer lg:drawer-open h-screen cinzel">
             {/* Drawer Toggle Checkbox */}
@@ -54,83 +60,154 @@ const Dashboard = () => {
                     </div>
                     {/* Links */}
                     <div className="flex-grow">
-                        <ul
-                            style={{ fontVariant: "small-caps" }}
-                            className="space-y-4 p-4 pl-6 text-slate-800 font-light"
-                        >
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/home"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
+                        {/* admin / user route */}
+                        {
+                            isAdmin ?
+                                <ul
+                                    style={{ fontVariant: "small-caps" }}
+                                    className="space-y-4 p-4 pl-6 text-slate-800 font-light"
                                 >
-                                    <FaHome /> <span>User Home</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/reservation"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/home"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaHome /> <span>Admin Home</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/reservation"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <ImSpoonKnife /> <span>Add Items</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/payment"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <IoMdMenu /> <span>Manage Items</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/payment"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <BsFillJournalBookmarkFill /> <span>Manage Bookings</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/users"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaUsers /> <span> All Users</span>
+                                        </NavLink>
+                                    </li>
+                                    
+                                </ul>
+                                :
+                                <ul
+                                    style={{ fontVariant: "small-caps" }}
+                                    className="space-y-4 p-4 pl-6 text-slate-800 font-light"
                                 >
-                                    <FaRegCalendarAlt /> <span>Reservation</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/payment"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
-                                >
-                                    <FaHistory /> <span>Payment History</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/cart"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
-                                >
-                                    <FaCartPlus /> <span>My Cart ({cart.length})</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/add-review"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
-                                >
-                                    <FaEdit /> <span>Add Review</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={handleNavClick}
-                                    to={"/dashboard/my-booking"}
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
-                                        }`
-                                    }
-                                >
-                                    <FaConciergeBell /> <span>My Booking</span>
-                                </NavLink>
-                            </li>
-                        </ul>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/home"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaHome /> <span>User Home</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/reservation"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaRegCalendarAlt /> <span>Reservation</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/payment"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaHistory /> <span>Payment History</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/cart"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaCartPlus /> <span>My Cart ({cart.length})</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/add-review"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaEdit /> <span>Add Review</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            onClick={handleNavClick}
+                                            to={"/dashboard/my-booking"}
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
+                                                }`
+                                            }
+                                        >
+                                            <FaConciergeBell /> <span>My Booking</span>
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                        }
 
                         <hr className="border-t border-white mx-4" />
                         <ul
