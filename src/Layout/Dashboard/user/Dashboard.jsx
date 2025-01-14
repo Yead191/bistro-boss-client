@@ -82,7 +82,7 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
-                                            to={"/dashboard/reservation"}
+                                            to={"/dashboard/add-items"}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
                                                 }`
@@ -94,7 +94,7 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
-                                            to={"/dashboard/payment"}
+                                            to={"/dashboard/manage-items"}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
                                                 }`

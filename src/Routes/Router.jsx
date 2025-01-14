@@ -14,6 +14,9 @@ import Dashboard from "../Layout/Dashboard/user/Dashboard";
 import Cart from "../Layout/Dashboard/user/cart";
 import Payment from "../Layout/Dashboard/user/Payment";
 import AllUsers from "../Layout/Dashboard/Admin/AllUsers";
+import AddItem from "../Layout/Dashboard/Admin/AddItem";
+import AdminRoute from "./AdminRoute";
+import ManageItems from "../Layout/Dashboard/Admin/ManageItems";
 
 
 const router = createBrowserRouter([
@@ -60,9 +63,18 @@ const router = createBrowserRouter([
         path: 'payment',
         element: <Payment></Payment>
       },
+      // aadmin routes
       {
         path: 'users',
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: 'add-items',
+        element: <AdminRoute><AddItem></AddItem></AdminRoute>
+      },
+      {
+        path: 'manage-items',
+        element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
       },
     ]
   }

@@ -18,7 +18,7 @@ const AdminRoute = ({ children }) => {
 
     }
     return (
-        <Navigate to={'/login'} state={location.pathname}></Navigate>
+        <Navigate to={'/'} state={location.pathname}></Navigate>
     );
 };
 
