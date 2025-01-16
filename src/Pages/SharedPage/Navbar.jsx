@@ -12,11 +12,23 @@ const Navbar = () => {
     const totalPrice = cart.reduce((total, item) => total + item.price, 0)
     // console.log(cart);
     // console.log(user);
-    const links = <>
+    const [isAdmin, isAdminLoading] = useAdmin()
+
+    const links = <div className='flex lg:items-center flex-col lg:flex-row'>
         <li><NavLink style={{ fontVariant: 'small-caps' }} to={'/'}>Home</NavLink></li>
         <li><NavLink style={{ fontVariant: 'small-caps' }} to={'/menu'}>Menu</NavLink></li>
         <li><NavLink style={{ fontVariant: 'small-caps' }} to={'/order/salad'}>Order Food</NavLink></li>
-        <li><NavLink style={{ fontVariant: 'small-caps' }} to={'/secret'}>Secret</NavLink></li>
+        {/* <li><NavLink style={{ fontVariant: 'small-caps' }} to={'/secret'}>Secret</NavLink></li> */}
+        {
+            user && isAdmin && <Link to={`dashboard/adminHome`} className='btn btn-ghost'>
+                <MdDashboard className='text-2xl' /> Dashboard
+            </Link>
+        }
+        {
+            user && !isAdmin && <Link to={`dashboard/userHome`} className='btn btn-ghost'>
+                <MdDashboard className='text-2xl' /> Dashboard
+            </Link>
+        }
         {
             user ?
                 <> </>
@@ -25,7 +37,7 @@ const Navbar = () => {
 
         }
 
-    </>
+    </div>
 
     const handleLogout = () => {
         logOut()
@@ -38,6 +50,12 @@ const Navbar = () => {
     }
 
 
+    // if (isAdminLoading) {
+    //     return <div className='flex justify-center items-center'>
+    //         <progress className="progress w-56"></progress>
+    //     </div>
+
+    // }
 
     return (
         <div className="navbar fixed z-10 bg-black bg-opacity-25 text-white lg:px-28">
@@ -105,6 +123,8 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
                 <div className="dropdown dropdown-end ">
                     <div className="w-12 rounded-full">

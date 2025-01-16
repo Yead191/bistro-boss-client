@@ -17,6 +17,10 @@ import AllUsers from "../Layout/Dashboard/Admin/AllUsers";
 import AddItem from "../Layout/Dashboard/Admin/AddItem";
 import AdminRoute from "./AdminRoute";
 import ManageItems from "../Layout/Dashboard/Admin/ManageItems";
+import UpdateItem from "../Layout/Dashboard/Admin/UpdateItem";
+import PaymentHistory from "../Layout/Dashboard/user/PaymentHistory";
+import UserHome from "../Layout/Dashboard/user/UserHome";
+import AdminHome from "../Layout/Dashboard/Admin/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -56,6 +60,10 @@ const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
+        path: 'userHome',
+        element: <UserHome></UserHome>
+      },
+      {
         path: 'cart',
         element: <Cart></Cart>
       },
@@ -63,7 +71,15 @@ const router = createBrowserRouter([
         path: 'payment',
         element: <Payment></Payment>
       },
-      // aadmin routes
+      {
+        path: 'payment-history',
+        element: <PaymentHistory></PaymentHistory>
+      },
+      // admin routes
+      {
+        path: 'adminHome',
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+      },
       {
         path: 'users',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
@@ -75,6 +91,11 @@ const router = createBrowserRouter([
       {
         path: 'manage-items',
         element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+      },
+      {
+        path: 'update-item/:id',
+        element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+        loader: ({ params }) => fetch(`https://bistro-boss-server-nu-nine.vercel.app/menu/${params.id}`)
       },
     ]
   }

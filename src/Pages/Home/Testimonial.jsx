@@ -14,7 +14,7 @@ import axios from 'axios';
 const Testimonial = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/reviews')
+        axios.get('https://bistro-boss-server-nu-nine.vercel.app/reviews')
             .then(res => {
                 setReviews(res.data);
             })

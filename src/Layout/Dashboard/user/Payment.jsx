@@ -1,24 +1,27 @@
 import React from 'react';
+import SectionHeader from '../../../components/SectionHeader';
+import { loadStripe } from '@stripe/stripe-js';
+import CheckoutForm from '../../../components/CheckoutForm';
+import { Elements } from '@stripe/react-stripe-js';
 
+
+// add publishable key
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_PK);
 const Payment = () => {
+    // const options = {
+    //     // passing the client secret obtained from the server
+    //     clientSecret: '',
+    // };
     return (
-        <div className="flex-1 bg-white flex flex-col justify-center items-center min-h-screen">
-            <h1 className="text-2xl font-bold mb-8">PAYMENT</h1>
-            <div className="flex flex-col md:flex-row items-center gap-4">
-                <input
-                    type="text"
-                    placeholder="Card number"
-                    className="input input-bordered w-60"
-                />
-                <input
-                    type="text"
-                    placeholder="MM/YY/CVC"
-                    className="input input-bordered w-60"
-                />
+        <div className="my-8">
+            <SectionHeader heading={'Payment'} subHeading={'Pay To Eat'}></SectionHeader>
+            <div className="flex-1 bg-white flex flex-col justify-center items-center min-h-[70vh]">
+                <Elements stripe={stripePromise} >
+                    <CheckoutForm />
+                </Elements>
+
+
             </div>
-            <button className="btn btn-primary bg-purple-600 text-white mt-6 w-40">
-                Pay
-            </button>
         </div>
     );
 };

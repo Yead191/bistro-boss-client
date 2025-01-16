@@ -5,10 +5,10 @@ import MenuItem from '../../components/MenuItem';
 import useMenu from '../../hooks/useMenu';
 
 const PopularItems = () => {
-const [menu, loading] = useMenu()
+const [menu, loading, refetch] = useMenu()
 // const [menu, setMenu] = useState([])
 
-const popular = menu.filter(item=> item.category === 'popular')
+const popular = menu?.filter(item=> item.category === 'popular')
 
 // useEffect(()=>{
 

@@ -70,7 +70,7 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
-                                            to={"/dashboard/home"}
+                                            to={"/dashboard/adminHome"}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
                                                 }`
@@ -127,7 +127,7 @@ const Dashboard = () => {
                                             <FaUsers /> <span> All Users</span>
                                         </NavLink>
                                     </li>
-                                    
+
                                 </ul>
                                 :
                                 <ul
@@ -137,7 +137,7 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
-                                            to={"/dashboard/home"}
+                                            to={"/dashboard/userHome"}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
                                                 }`
@@ -167,7 +167,7 @@ const Dashboard = () => {
                                                 }`
                                             }
                                         >
-                                            <FaHistory /> <span>Payment History</span>
+                                            <FaHistory /> <span>Payment</span>
                                         </NavLink>
                                     </li>
                                     <li>
@@ -197,13 +197,13 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
-                                            to={"/dashboard/my-booking"}
+                                            to={"/dashboard/payment-history"}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 ${isActive ? "text-white text-md lg:text-xl" : "text-slate-800"
                                                 }`
                                             }
                                         >
-                                            <FaConciergeBell /> <span>My Booking</span>
+                                            <FaConciergeBell /> <span>Payment History</span>
                                         </NavLink>
                                     </li>
                                 </ul>

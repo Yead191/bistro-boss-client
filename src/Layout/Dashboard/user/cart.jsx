@@ -4,6 +4,7 @@ import SectionHeader from '../../../components/SectionHeader'
 import { FaTrash } from 'react-icons/fa';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const axiosSecure = useAxiosSecure()
@@ -45,7 +46,13 @@ const Cart = () => {
                 <div style={{ fontVariant: 'small-caps' }} className='space-y-2 flex flex-col md:flex-row justify-between items-center mb-10'>
                     <h1 className='text-3xl'>Total Orders: {cart.length}</h1>
                     <h1 className='text-3xl'>Total Price: {totalPrice.toFixed(2)}</h1>
-                    <button className='btn bg-[#D1A054] text-base-100'>Pay</button>
+                    {
+                        cart.length ?
+                            <Link to={'/dashboard/payment'} className='btn bg-[#D1A054] text-base-100'>Pay</Link>
+                            :
+                            <button disabled to={'/dashboard/payment'} className='btn bg-[#D1A054] text-base-100'>Pay</button>
+
+                    }
                 </div>
                 <div>
                     <div className="overflow-x-auto">
