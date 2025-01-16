@@ -10,6 +10,7 @@ import slide2 from '../../assets/home/slide2.jpg'
 import slide3 from '../../assets/home/slide3.jpg'
 import slide4 from '../../assets/home/slide4.jpg'
 import slide5 from '../../assets/home/slide5.jpg'
+import { Link } from 'react-router-dom';
 
 
 const Category = () => {
@@ -24,35 +25,49 @@ const Category = () => {
             className="mySwiper mt-12 mb-12 cursor-pointer"
         >
             <SwiperSlide>
-                <img src={slide1} alt="" />
-                <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
-                    Salads
-                </p>
+                <Link to={'/order/salad'}>
+                    <img src={slide1} alt="" />
+                    <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
+                        Salads
+                    </p>
+                </Link>
 
             </SwiperSlide>
             <SwiperSlide>
-                <img src={slide2} alt="" />
-                <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
-                    Soups
-                </p>
+                <Link to={'/order/soup'}>
+                    <img src={slide2} alt="" />
+                    <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
+                        Soups
+                    </p>
+                </Link>
+
             </SwiperSlide>
             <SwiperSlide>
-                <img src={slide3} alt="" />
-                <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
-                    Pizzas
-                </p>
+                <Link to={'/order/pizza'}>
+                    <img src={slide3} alt="" />
+                    <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
+                        Pizzas
+                    </p>
+                </Link>
+
             </SwiperSlide>
             <SwiperSlide>
-                <img src={slide4} alt="" />
-                <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
-                    Deserts
-                </p>
+                <Link to={'/order/dessert'}>
+                    <img src={slide4} alt="" />
+                    <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
+                        Deserts
+                    </p>
+                </Link>
+
             </SwiperSlide>
             <SwiperSlide>
-                <img src={slide5} alt="" />
-                <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
-                    Vegetables
-                </p>
+                <Link to={'/order/drinks'}>
+                    <img src={slide5} alt="" />
+                    <p className="text-white text-xl font-medium leading-7 -mt-12" style={{ fontVariant: 'small-caps' }}>
+                        Drinks
+                    </p>
+                </Link>
+
             </SwiperSlide>
 
 
