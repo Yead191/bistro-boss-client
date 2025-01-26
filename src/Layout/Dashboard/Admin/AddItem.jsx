@@ -20,7 +20,7 @@ const AddItem = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
         const imageFile = {
             image: data.image[0]
         }
@@ -38,7 +38,7 @@ const AddItem = () => {
                 image: res.data.data.display_url
             }
             const menuRes = await axiosSecure.post('/menu', menuItem)
-            console.log(menuRes.data);
+            // console.log(menuRes.data);
             if (menuRes.data.insertedId) {
                 setLoading(false)
                 reset()
@@ -51,7 +51,7 @@ const AddItem = () => {
                 });
             }
         }
-        console.log(res.data);
+        // console.log(res.data);
 
     }
     if (loading) {

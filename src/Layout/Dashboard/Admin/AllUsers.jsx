@@ -84,7 +84,7 @@ const AllUsers = () => {
                 <div style={{ fontVariant: 'small-caps' }} className='space-y-2 flex flex-col md:flex-row justify-between items-center mb-10'>
                     <h1 className='text-3xl'>Total Users: {users.length}</h1>
                 </div>
-                <div>
+                <div className='my-8  md:w-11/12 lg:w-10/12 mx-auto'>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}

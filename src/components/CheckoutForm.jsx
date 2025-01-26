@@ -6,6 +6,7 @@ import useAuth from '../hooks/useAuth';
 import useAxiosSecure from '../hooks/useAxiosSecure.jsx';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CheckoutForm = () => {
     const navigate = useNavigate()
@@ -23,7 +24,7 @@ const CheckoutForm = () => {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })
                 .then(res => {
 
-                    console.log(res);
+                    // console.log(res);
                     setClientSecret(res.data.clientSecret)
                 })
         }
@@ -51,7 +52,7 @@ const CheckoutForm = () => {
             // console.log(error);
             setError(error.message)
         } else {
-            console.log(paymentMethod);
+            // console.log(paymentMethod);
             setError('')
         }
         //confirm payment 
@@ -65,11 +66,11 @@ const CheckoutForm = () => {
             }
         })
         if (confirmError) {
-            console.log('confirm error');
+            // console.log('confirm error');
             setError(confirmError.message)
         }
         else {
-            console.log('payment intent', paymentIntent);
+            // console.log('payment intent', paymentIntent);
             setError('')
             if (paymentIntent.status === 'succeeded') {
                 setTransaction(paymentIntent.id);
@@ -84,8 +85,8 @@ const CheckoutForm = () => {
 
 
                 }
-                const res = await axiosSecure.post('/payments', payment)
-                console.log(res.data);
+                const res = await useAxiosSecure.post('/payments', payment)
+                // console.log(res.data);
                 if (res.data.result.insertedId) {
                     refetch()
                     e.target.reset()

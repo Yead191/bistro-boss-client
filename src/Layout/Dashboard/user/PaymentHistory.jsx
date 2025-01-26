@@ -23,7 +23,7 @@ const PaymentHistory = () => {
 
         }
     })
-    console.log(payments);
+    // console.log(payments);
     return (
         <div className='my-8'>
             <SectionHeader heading={'Payment History'} subHeading={'Check Your Payment History'} ></SectionHeader>

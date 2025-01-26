@@ -41,7 +41,7 @@ const Register = () => {
         creteUser(values.email, values.password)
             .then(res => {
                 const user = res.user
-                console.log(user);
+                // console.log(user);
                 const userInfo = {
                     name: values.name,
                     email: values.email,

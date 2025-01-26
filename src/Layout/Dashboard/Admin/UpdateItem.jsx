@@ -23,7 +23,7 @@ const UpdateItem = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
         const imageFile = {
             image: data.image[0]
         }
@@ -41,7 +41,7 @@ const UpdateItem = () => {
                 image: res.data.data.display_url
             }
             const menuRes = await axiosSecure.patch(`/menu/${_id}`, menuItem)
-            console.log(menuRes.data);
+            // console.log(menuRes.data);
             if (menuRes.data.modifiedCount > 0) {
                 setLoading(false)
                 reset()
@@ -54,7 +54,7 @@ const UpdateItem = () => {
                 });
             }
         }
-        console.log(res.data);
+        // console.log(res.data);
 
     }
     if (loading) {

@@ -53,7 +53,7 @@ const SocialLogin = () => {
                 navigate(from)
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         
                         // console.log(res);
                     })
