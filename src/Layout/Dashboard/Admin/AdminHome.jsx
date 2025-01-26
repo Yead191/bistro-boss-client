@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaBook, FaDollarSign, FaTruck, FaUsers } from 'react-icons/fa';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Sector, ResponsiveContainer, Legend } from 'recharts';
+import { Helmet } from 'react-helmet-async';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -61,6 +62,9 @@ const AdminHome = () => {
 
     return (
         <div className='my-8 w-11/12 mx-auto'>
+            <Helmet>
+                <title>Admin Home | Bistro Boss</title>
+            </Helmet>
             <h1 style={{ fontVariant: 'small-caps' }} className='text-xl'>Hi, Welcome Back</h1>
             <h1 style={{ fontVariant: 'small-caps' }} className='text-3xl text-[#2e1f9e] lg:text-4xl'>{user?.displayName}</h1>
             <div className='my-12 lg:w-10/12 mx-auto'>

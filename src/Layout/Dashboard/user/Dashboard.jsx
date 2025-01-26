@@ -134,7 +134,7 @@ const Dashboard = () => {
                                             <FaHome /> <span>User Home</span>
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink
                                             onClick={handleNavClick}
                                             to={"/dashboard/reservation"}
@@ -145,7 +145,7 @@ const Dashboard = () => {
                                         >
                                             <FaRegCalendarAlt /> <span>Reservation</span>
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}
@@ -170,7 +170,7 @@ const Dashboard = () => {
                                             <FaCartPlus /> <span>My Cart ({cart.length})</span>
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink
                                             onClick={handleNavClick}
                                             to={"/dashboard/add-review"}
@@ -181,7 +181,7 @@ const Dashboard = () => {
                                         >
                                             <FaEdit /> <span>Add Review</span>
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <NavLink
                                             onClick={handleNavClick}

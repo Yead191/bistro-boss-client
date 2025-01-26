@@ -60,7 +60,7 @@ const Navbar = () => {
     // }
 
     return (
-        <div className="navbar fixed z-10 bg-black bg-opacity-25 text-white lg:px-28">
+        <div className="navbar fixed z-10 bg-black bg-opacity-25 text-white lg:px-28 py-0">
             <div className='navbar-start '>
                 <div className="drawer lg:hidden flex items-center">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
