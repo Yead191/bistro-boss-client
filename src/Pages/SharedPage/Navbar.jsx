@@ -147,14 +147,18 @@ const Navbar = () => {
                                     </NavLink>
                                 </li>
                                 {
-                                    user && isAdmin && <NavLink onClick={() => (document.getElementById("my-drawer-2").checked = false)} to={`dashboard/adminHome`} style={{ fontVariant: 'small-caps' }} className='btn btn-ghost'>
-                                        <MdDashboard className='text-lg' /> Dashboard
-                                    </NavLink>
+                                    user && isAdmin && <li>
+                                        <NavLink onClick={() => (document.getElementById("my-drawer-2").checked = false)} to={`dashboard/adminHome`} style={{ fontVariant: 'small-caps' }} className=''>
+                                            <MdDashboard className='text-lg' /> Dashboard
+                                        </NavLink>
+                                    </li>
                                 }
                                 {
-                                    user && !isAdmin && <NavLink onClick={() => (document.getElementById("my-drawer-2").checked = false)} to={`dashboard/userHome`} style={{ fontVariant: 'small-caps' }} className='btn btn-ghost'>
-                                        <MdDashboard className='text-lg' /> Dashboard
-                                    </NavLink>
+                                    user && !isAdmin && <li>
+                                        <NavLink onClick={() => (document.getElementById("my-drawer-2").checked = false)} to={`dashboard/userHome`} style={{ fontVariant: 'small-caps' }} className=''>
+                                            <MdDashboard className='text-lg' /> Dashboard
+                                        </NavLink>
+                                    </li>
                                 }
 
                             </ul>
@@ -168,12 +172,12 @@ const Navbar = () => {
                         </div>
                     </div>
                     <Link to={'/'} className='text-white text-xl lg:text-2xl font-semibold lg:hidden' >
-                        Bistro Boss?
+                        Bistro Boss
                     </Link>
                 </div>
 
                 <Link to={'/'} className='text-white text-xl lg:text-2xl font-semibold hidden lg:flex' >
-                    Bistro Boss?
+                    Bistro Boss
                 </Link>
             </div>
             <div className="navbar-end hidden lg:flex">

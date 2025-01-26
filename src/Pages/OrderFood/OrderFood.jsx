@@ -30,7 +30,7 @@ const OrderFood = () => {
             <div className='my-12'>
 
                 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList className="flex justify-center space-x-4">
+                    <TabList className="flex justify-center md:space-x-4">
                         <Tab style={{ fontVariant: 'small-caps' }}
                             className="py-2 px-4 cursor-pointer focus:outline-none"
                             selectedClassName="text-[#BB8506] border-0  border-b-4 border-[#BB8506] font-semibold"

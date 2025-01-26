@@ -21,12 +21,16 @@ import UpdateItem from "../Layout/Dashboard/Admin/UpdateItem";
 import PaymentHistory from "../Layout/Dashboard/user/PaymentHistory";
 import UserHome from "../Layout/Dashboard/user/UserHome";
 import AdminHome from "../Layout/Dashboard/Admin/AdminHome";
+import ScrollToTop from "../components/ScrollToTop";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: (<>
+      <ScrollToTop></ScrollToTop>
+      <Main></Main>
+    </>),
     children: [
       {
         path: '/',

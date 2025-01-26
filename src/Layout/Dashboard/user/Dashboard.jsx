@@ -34,7 +34,7 @@ const Dashboard = () => {
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar with Toggle Button */}
-                <div className="p-4 bg-[#D5A368] text-white flex items-center justify-between lg:hidden fixed z-10 w-full ">
+                <div className="p-4 bg-[#D5A368] text-white flex items-center justify-between lg:hidden fixed z-10 w-full py-1 ">
                     <label htmlFor="dashboard-drawer" className="btn btn-ghost text-black drawer-button lg:hidden">
                         <FaBars className="text-2xl" />
                     </label>
@@ -53,13 +53,18 @@ const Dashboard = () => {
                 <div className="bg-[#D5A368] text-white w-64 flex flex-col justify-between  min-h-full fixed z-10">
                     {/* Logo */}
                     <div className="p-6 text-black font-bold text-center">
-                        <h1 className="text-xl lg:text-3xl">BISTRO BOSS</h1>
-                        <p style={{ fontVariant: "small-caps" }} className="text-md leading-10">
+                        <h1 className="text-xl lg:text-3xl ">BISTRO BOSS</h1>
+                        <p style={{ fontVariant: "small-caps" }} className="text-md leading-10 hidden lg:flex">
                             R e s t a u r a n t
                         </p>
+
                     </div>
                     {/* Links */}
                     <div className="flex-grow">
+                        <p style={{ fontVariant: "small-caps" }} className=" leading-10 pl-6 text-start text-2xl lg:hidden">
+                            Menu
+                        </p>
+                        <hr />
                         {/* admin / user route */}
                         {
                             isAdmin ?
