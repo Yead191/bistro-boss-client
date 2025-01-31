@@ -48,7 +48,7 @@ const AllUsers = () => {
 
     const handleRole = user => {
         Swal.fire({
-            title: "Do you want to save the changes?",
+            title: `Do you want to make ${user.name} Admin?`,
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: "Save",
