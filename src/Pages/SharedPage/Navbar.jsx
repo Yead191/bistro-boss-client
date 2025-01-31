@@ -171,12 +171,12 @@ const Navbar = () => {
                             }
                         </div>
                     </div>
-                    <Link to={'/'} className='text-white text-xl lg:text-2xl font-semibold lg:hidden' >
+                    <Link style={{fontVariant: 'small-caps'}} to={'/'} className='text-white text-xl lg:text-2xl font-semibold lg:hidden' >
                         Bistro Boss
                     </Link>
                 </div>
 
-                <Link to={'/'} className='text-white text-xl lg:text-2xl font-semibold hidden lg:flex' >
+                <Link style={{fontVariant: 'small-caps'}} to={'/'} className='text-white text-xl lg:text-2xl font-semibold hidden lg:flex' >
                     Bistro Boss
                 </Link>
             </div>
